@@ -16,10 +16,13 @@ Shared learnings and context that persist across sessions for all contributors.
 - Chat messages stored in R2 (JSON), not in the database
 - Two-step file upload: presigned URL from `/api/attachments/upload`, then confirm via `/api/attachments/confirm`
 - AI skills are lazy-loaded: listed by name/description in system prompt, full content fetched on-demand via `load_skill` tool
+- Runway operations layer: all DB writes go through `src/lib/runway/operations-writes-*.ts` for audit trail, idempotency, and fuzzy matching
+- Runway batch updates: `setBatchId()` tags audit records and suppresses MCP Slack notifications; `scripts/runway-publish-updates.ts` groups and posts after review
 
 ## Gotchas
 
 - Turbopack requires `.tsx` extension for any file containing JSX — `.ts` files with JSX fail with cryptic "Expected '>', got 'src'" errors
+- When CC works in a worktree, write shared files (pre-plans, prompts) to the worktree path, not the main repo — CC can't see the main repo's `docs/tmp/`
 
 ## Decisions
 
@@ -29,3 +32,6 @@ Shared learnings and context that persist across sessions for all contributors.
 - Token usage tracked per-workspace for cost monitoring (tokenUsage table)
 - Knowledge base uses wiki-link graph between documents (knowledgeDocumentLinks table)
 - Brand guidelines stored as JSON in brands table, extracted via Inngest background job
+- Runway uses separate Turso DB (`RUNWAY_DATABASE_URL`) — Jason has env vars, can run `runway:push` without Tim
+- Runway schema changes: modify `runway-schema.ts` → `pnpm runway:push` (direct to Turso, no Vercel deploy needed)
+- Runway data migrations: `scripts/runway-migrations/*.ts` run locally via `pnpm runway:migrate` — no PR needed for data changes
