@@ -1,6 +1,8 @@
-# Data Integrity TP — Self-Handoff (2026-04-30)
+# Data Integrity TP — Cohort Handoff
 
-Successor TP reads this in full before invoking `/data-integrity-tp`. Hand-off from the LPPC-pass session into the next round.
+Successor TP reads this in full before invoking `/data-integrity-tp`. Rolling cohort handoff — most recent session-close at top. Each session-close section dates itself within.
+
+**Note on file references:** Per-session "Snapshot state on disk" sections list paths under `docs/tmp/data/...` and `scripts/runway-migrations/...`. These resolved at the time of writing within the session's worktree. Worktrees are disposed after cohort close, so post-disposal those paths resolve only via the session's feature branch history on `origin` — e.g., Convergix artifacts at `origin/feature/data-tp-cluster3` (commit `0bfee29`). Treat in-doc file references as historical audit-trail; fetch the branch if you need to reconstitute.
 
 ## Session 2026-05-02 close (Convergix ✓ — cohort COMPLETE)
 
