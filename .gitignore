@@ -50,3 +50,10 @@ next-env.d.ts
 docs/brain/
 docs/reference/
 /sources
+.env*.local
+
+# Local subagent worktrees (Claude Code internal — separate from project worktrees)
+.claude/worktrees/
+
+# TP working scratch — truly temporary, pruned by owning CC
+docs/tmp/

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HDL Website Build — Proposed Schedule</title>
+<style>
+  body { font: 13px/1.4 -apple-system, system-ui, sans-serif; background: #fafafa; color: #222; margin: 24px; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .sub { color: #666; margin-bottom: 16px; }
+  .legend { margin: 12px 0 20px; font-size: 12px; color: #555; }
+  .legend span { display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin: 0 4px 0 12px; border-radius: 2px; }
+  .gantt { border-collapse: collapse; width: 100%; max-width: 1200px; }
+  .gantt th, .gantt td { border-bottom: 1px solid #e3e3e3; padding: 6px 4px; }
+  .gantt th { font-weight: 600; font-size: 11px; color: #555; text-align: center; background: #f1f1f1; }
+  .gantt th.lbl { text-align: left; padding-left: 12px; min-width: 240px; background: #f1f1f1; }
+  .gantt td.lbl { padding-left: 12px; font-size: 12px; color: #222; }
+  .gantt td.lbl.section { background: #efefef; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #444; letter-spacing: 0.5px; }
+  .cell { position: relative; height: 18px; vertical-align: middle; }
+  .bar { position: absolute; top: 4px; height: 10px; border-radius: 3px; }
+  .bar.range { background: #4a90e2; }
+  .bar.setup { background: #4a90e2; opacity: 0.45; }
+  .ms { position: absolute; top: 1px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 12px solid #d9534f; }
+  .gantt tr:hover td { background: #fafce4; }
+  .week-line { width: calc(100% / 13); }
+</style>
+</head>
+<body>
+<h1>HDL Website Build — Proposed Schedule</h1>
+<div class="sub">Generated 2026-04-27 · Q2 = Domain/URL late (6/30-7/2) · Q3 = Site Staging standalone (6/8)</div>
+<div class="legend">
+  <span style="background:#4a90e2"></span>Active range
+  <span style="background:#4a90e2;opacity:0.45"></span>Setup / wrap
+  <span style="border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:12px solid #d9534f;width:0;height:0"></span>Milestone
+</div>
+<table class="gantt">
+<thead>
+<tr>
+  <th class="lbl">Task</th>
+  <th class="week-line">4/13</th>
+  <th class="week-line">4/20</th>
+  <th class="week-line">4/27</th>
+  <th class="week-line">5/04</th>
+  <th class="week-line">5/11</th>
+  <th class="week-line">5/18</th>
+  <th class="week-line">5/25</th>
+  <th class="week-line">6/01</th>
+  <th class="week-line">6/08</th>
+  <th class="week-line">6/15</th>
+  <th class="week-line">6/22</th>
+  <th class="week-line">6/29</th>
+  <th class="week-line">7/06</th>
+</tr>
+</thead>
+<tbody>
+  <tr><td class="lbl section" colspan="14">Design + Dev</td></tr>
+  <tr><td class="lbl">Batch 1 Design (Lane)</td>
+    <td class="cell"><div class="bar setup" style="left:50%;width:50%"></div></td>
+    <td class="cell"><div class="bar range" style="left:0;width:100%"></div></td>
+    <td class="cell"><div class="bar range" style="left:0;width:60%"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">HDL R1 Review (B1)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">HDL Feedback (B1)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">HDL R2 + Copy Lock (B1)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Batch 1 Dev (Leslie)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="bar range" style="left:0;width:100%"></div></td>
+    <td class="cell"><div class="bar range" style="left:0;width:50%"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Batch 2 Design (Lane)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="bar range" style="left:60%;width:40%"></div></td>
+    <td class="cell"><div class="bar range" style="left:0;width:100%"></div></td>
+    <td class="cell"><div class="bar range" style="left:0;width:50%"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">HDL R1 Review (B2)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">HDL Feedback (B2)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">HDL R2 + Copy Lock (B2)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Batch 2 Dev (Leslie)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="bar range" style="left:0;width:100%"></div></td>
+    <td class="cell"><div class="bar range" style="left:0;width:60%"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+
+  <tr><td class="lbl section" colspan="14">Production + Launch</td></tr>
+  <tr><td class="lbl">Content Capture Options</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">HDL Vendor Pick</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Production Shoot (Bend)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="bar range" style="left:0;width:100%"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">HDL R1 Site Review</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">CIV add new content</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="bar range" style="left:0;width:100%"></div></td>
+    <td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">CIV QA + Webflow transfer</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="bar range" style="left:0;width:100%"></div></td>
+    <td class="cell"><div class="bar setup" style="left:0;width:30%"></div></td>
+  </tr>
+  <tr><td class="lbl">HDL Confirm to Launch</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms" style="left:30%"></div></td>
+  </tr>
+  <tr><td class="lbl"><strong>LAUNCH</strong></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms" style="left:50%"></div></td>
+  </tr>
+
+  <tr><td class="lbl section" colspan="14">Parallel Infra</td></tr>
+  <tr><td class="lbl">Schema/SEO/AIO (Ken Clark)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Ad Words (Jamie - HDL)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Smokeball (Leslie)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Site Staging <em>(Q3=standalone)</em></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Domain/URL + Webflow <em>(Q2=late)</em></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="bar range" style="left:0;width:100%"></div></td>
+    <td class="cell"><div class="bar setup" style="left:0;width:30%"></div></td>
+  </tr>
+
+  <tr><td class="lbl section" colspan="14">Copy (Chris)</td></tr>
+  <tr><td class="lbl">Calculators (5.3 + 5.4)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+  <tr><td class="lbl">Legal Articles (5.5-5.7)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+
+  <tr><td class="lbl section" colspan="14">Decisions</td></tr>
+  <tr><td class="lbl">Open Page Decisions (3.6/8.1/8.2)</td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td>
+    <td class="cell"><div class="ms"></div></td>
+    <td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

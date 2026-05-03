@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HDL Website Build — Proposed Gantt (post-audit, 2026-04-28)</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --panel: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --muted: #6b7280;
+    --today: #dc2626;
+    --c-delivery: #2563eb;
+    --c-delivery-light: #93c5fd;
+    --c-kickoff: #7c3aed;
+    --c-kickoff-light: #c4b5fd;
+    --c-approval: #d97706;
+    --c-approval-light: #fcd34d;
+    --c-review: #0891b2;
+    --c-review-light: #67e8f9;
+    --c-launch: #16a34a;
+    --c-launch-light: #86efac;
+    --hdl: #f3f4f6;
+    --civ: #ffffff;
+    --ambig: #fee2e2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 24px;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); margin-bottom: 16px; font-size: 12px; }
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+  .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { width: 16px; height: 12px; border-radius: 2px; display: inline-block; }
+  .ambig-marker { width: 10px; height: 10px; background: var(--ambig); border: 1px dashed var(--today); display: inline-block; }
+  .source-pill {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .source-pill.civ { background: #dbeafe; color: #1e40af; }
+  .source-pill.hdl { background: #f3f4f6; color: #374151; }
+  .source-pill.both { background: #ede9fe; color: #5b21b6; }
+
+  .gantt {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: auto;
+    position: relative;
+  }
+  .gantt-header {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    border-bottom: 2px solid var(--border);
+    background: #f9fafb;
+    position: sticky; top: 0; z-index: 10;
+  }
+  .gantt-header-left {
+    padding: 8px 12px;
+    font-weight: 600;
+    border-right: 1px solid var(--border);
+  }
+  .gantt-header-right {
+    display: flex;
+    position: relative;
+    overflow: visible;
+  }
+  .week-cell {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    border-right: 1px solid var(--border);
+    padding: 6px 4px;
+    background: #f9fafb;
+  }
+  .day-row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+  }
+  .day-cell {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 9px;
+    color: var(--muted);
+    border-right: 1px solid #f3f4f6;
+    padding: 2px 0;
+  }
+  .day-cell.weekend { background: #fafafa; }
+  .day-cell.month-end { border-right-color: var(--border); }
+
+  .task-row {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .task-row:hover .task-info { background: #f9fafb; }
+  .task-info {
+    padding: 8px 12px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .task-info.hdl-led { background: var(--hdl); }
+  .task-info.civ-led { background: var(--civ); }
+  .task-num {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .task-title {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .task-meta {
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .task-meta strong { color: var(--text); font-weight: 500; }
+
+  .task-bar-container {
+    position: relative;
+    overflow: visible;
+  }
+  .task-bar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 22px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: default;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  }
+  .task-bar.delivery { background: var(--c-delivery); }
+  .task-bar.kickoff { background: var(--c-kickoff); }
+  .task-bar.approval { background: var(--c-approval); }
+  .task-bar.review { background: var(--c-review); }
+  .task-bar.launch { background: var(--c-launch); }
+  .task-bar.ambiguous { border: 2px dashed var(--today); }
+  .task-bar.milestone {
+    width: 14px;
+    height: 14px;
+    transform: translateY(-50%) rotate(45deg);
+    padding: 0;
+    border-radius: 2px;
+    margin-left: -7px;
+  }
+  .task-bar.milestone .label { display: none; }
+  .milestone-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    margin-left: 16px;
+    white-space: nowrap;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .today-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--today);
+    z-index: 5;
+    pointer-events: none;
+  }
+  .today-label {
+    position: absolute;
+    top: -22px;
+    transform: translateX(-50%);
+    background: var(--today);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  .tooltip {
+    position: absolute;
+    background: rgba(17,24,39,0.95);
+    color: white;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 1.4;
+    max-width: 280px;
+    z-index: 100;
+    display: none;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .task-bar:hover + .tooltip,
+  .milestone-label:hover + .tooltip { display: block; }
+  .has-tooltip { position: relative; }
+
+  .summary {
+    margin-top: 24px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+  }
+  .summary h2 { font-size: 14px; margin: 0 0 8px; }
+  .summary ul { margin: 0; padding-left: 20px; font-size: 12px; color: var(--muted); }
+  .summary li { margin-bottom: 4px; }
+  .summary li strong { color: var(--text); }
+
+  .source-banner {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+  .source-banner strong { color: #78350f; }
+
+  /* Critical path indicator */
+  .critical { font-weight: 700; }
+
+  .blocker-badge {
+    background: var(--today);
+    color: white;
+    font-size: 9px;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-left: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<h1>HDL Website Build — Proposed Gantt</h1>
+<div class="subtitle">
+  Post-audit proposal as of 2026-04-28. Combines audit findings + Jill 2026-04-28 09:52 Slack answers.
+  Project span: 2026-04-17 → 2026-07-07. Today: <strong>2026-04-28 (Tuesday)</strong>.
+</div>
+
+<div class="source-banner">
+  <strong>Status:</strong> This is the proposed end state, NOT current prod. Differences from current prod are highlighted with <span class="ambig-marker"></span> dashed-red borders (operator-decision-pending items) or noted in tooltips. Open Page Decisions kept (audit found it operator-sourced; do not delete). Schema/SEO/AIO + Ad Words moved to HDL pass-through per Jill. Civ R1 Refinements split from Lane Post-Shoot.
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="swatch" style="background: var(--c-kickoff)"></span> Kickoff</div>
+  <div class="legend-item"><span class="swatch" style="background: var(--c-delivery)"></span> Delivery</div>
+  <div class="legend-item"><span class="swatch" style="background: var(--c-approval)"></span> Approval</div>
+  <div class="legend-item"><span class="swatch" style="background: var(--c-review)"></span> Review</div>
+  <div class="legend-item"><span class="swatch" style="background: var(--c-launch)"></span> Launch</div>
+  <div class="legend-item"><span class="ambig-marker"></span> Operator-decision pending</div>
+  <div class="legend-item"><span class="source-pill civ">Civ</span> Civ-owned</div>
+  <div class="legend-item"><span class="source-pill hdl">HDL</span> HDL-owned / pass-through</div>
+  <div class="legend-item"><span class="source-pill both">Civ + HDL</span> Joint</div>
+</div>
+
+<div class="gantt" id="gantt"></div>
+
+<div class="summary">
+  <h2>Reading the Gantt</h2>
+  <ul>
+    <li><strong>Bars (range tasks):</strong> show startDate → endDate. Length = duration. Label inside bar = title.</li>
+    <li><strong>Diamonds (milestones):</strong> single-day items. Label appears to the right.</li>
+    <li><strong>Background tint on left column:</strong> light gray = HDL-led / pass-through, white = Civ-led, lavender = joint Civ+HDL.</li>
+    <li><strong>Dashed red border:</strong> item has at least one operator-decision-pending field (Site Staging 6/4 vs 6/8; Production Shoot photographer; AG1-style scope holds awaiting verbal sync).</li>
+    <li><strong>Today line:</strong> red vertical line at 2026-04-28.</li>
+    <li><strong>Hover any bar/diamond</strong> for full notes including source attribution and pending operator questions.</li>
+  </ul>
+  <h2 style="margin-top: 12px;">Key changes vs current prod</h2>
+  <ul>
+    <li><strong>Convention shift (date=endDate):</strong> applied to all 28 HDL items. Range tasks now anchor display date to deadline; milestones get endDate=date.</li>
+    <li><strong>Schema/SEO/AIO (#5):</strong> resources `Vendor: Ken Clark` → `HDL`. HDL-direct contractor; pass-through. Per Jill 2026-04-28 #1.</li>
+    <li><strong>Smokeball Integration (#11):</strong> resources `Dev: Leslie` → `Dev: Leslie, CD: Lane`. Leslie iframes form, Lane reskins. Per Jill 2026-04-28 #2.</li>
+    <li><strong>Calculators (#10):</strong> resources `CW: Chris (client)` → `CW: Chris`. Chris is Civ contractor.</li>
+    <li><strong>Legal Articles (#17):</strong> resources `CW: Chris (client)` → `CW: Chris`. Chris (Civ) writes by Copy Lock 5/29. Per Jill 2026-04-28 #3.</li>
+    <li><strong>Ad Words (#9):</strong> notes confirmed pass-through; OPERATOR: verify marker stripped. Per Jill 2026-04-28 #4 (likely).</li>
+    <li><strong>Production Shoot (#20):</strong> notes flag photographer not locked + pass-through cost.</li>
+    <li><strong>Civ R1 Refinements (#24):</strong> resources `CD: Lane` → `Dev: Leslie`. Leslie does refinements off HDL feedback.</li>
+    <li><strong>Lane Post-Shoot Editing (#25, NEW):</strong> separate range task 6/2–6/19 for Lane to edit + present photo selections to Dave on his return.</li>
+    <li><strong>Batch 2 Dev (#16):</strong> milestone 5/25 → range 5/25–6/4 per operator confirmation (wraps day Site Staging).</li>
+    <li><strong>HDL Confirm to Launch (#28):</strong> 7/2 (drafter fabrication) → 7/6 (per schedule sheet, single-day milestone).</li>
+    <li><strong>Open Page Decisions (#6):</strong> KEPT (audit Source panel found Jill 2026-04-27 Slack authorizing). Convention-shift to single-day milestone 5/4. Do NOT delete.</li>
+    <li><strong>Site Staging (#21):</strong> kept at 6/4 with dashed border — Jill's prior Slack said 6/8, decision pending verbal sync.</li>
+  </ul>
+</div>
+
+<script>
+// Date math helpers
+function parseDate(s) { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); }
+function daysBetween(a, b) { return Math.round((b - a) / (1000 * 60 * 60 * 24)); }
+function fmtDay(d) { return d.getDate(); }
+function fmtMonth(d) { return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]; }
+function dayOfWeekShort(d) { return ['Su','M','T','W','Th','F','Sa'][d.getDay()]; }
+function isWeekend(d) { return d.getDay() === 0 || d.getDay() === 6; }
+
+const PROJECT_START = parseDate('2026-04-17');
+const PROJECT_END = parseDate('2026-07-07');
+const TOTAL_DAYS = daysBetween(PROJECT_START, PROJECT_END) + 1; // 82 days
+const TODAY = parseDate('2026-04-28');
+const DAY_PX = 14;
+
+// Tasks (proposed end state per audit + Jill)
+const TASKS = [
+  { num: 1, title: 'Batch 1 Design', start: '2026-04-17', end: '2026-04-28', cat: 'delivery', resources: 'CD: Lane', source: 'civ', note: 'Civ-side design 4/17–4/28. Wraps today.' },
+  { num: 2, title: 'HDL R1 Review (B1)', start: '2026-04-29', end: '2026-04-29', cat: 'approval', resources: 'HDL', source: 'hdl', note: 'Client R1 review of Batch 1 design.' },
+  { num: 3, title: 'HDL Feedback (B1)', start: '2026-05-01', end: '2026-05-01', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'HDL Batch 1 feedback. Dave Edwards out 4/30–5/12 — feedback may slip.' },
+  { num: 4, title: 'Batch 1 Dev', start: '2026-05-04', end: '2026-05-15', cat: 'kickoff', resources: 'Dev: Leslie', source: 'civ', note: 'Batch 1 dev 5/4–5/15. Leslie picks up post-Copy-Lock.' },
+  { num: 5, title: 'Schema/SEO/AIO', start: '2026-05-04', end: '2026-05-04', cat: 'kickoff', resources: 'HDL', source: 'hdl', note: 'HDL pass-through. Ken Clark contracted directly with HDL. Civ does not own this work. Per Jill 2026-04-28 #1.', flag: 'Updated per Jill: was Vendor: Ken Clark; now HDL pass-through' },
+  { num: 6, title: 'Open Page Decisions (3.6/8.1/8.2)', start: '2026-05-04', end: '2026-05-04', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'HDL decides on pages 3.6 / 8.1 / 8.2 before B2 design KO 5/7. Operator-sourced (Jill 2026-04-27 Slack). DO NOT DELETE.' },
+  { num: 7, title: 'HDL R2 + Copy Lock (B1)', start: '2026-05-07', end: '2026-05-07', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'Final B1 sign-off + copy lock.' },
+  { num: 8, title: 'Batch 2 Design', start: '2026-05-07', end: '2026-05-15', cat: 'delivery', resources: 'CD: Lane', source: 'civ', note: 'Civ-side B2 design 5/7–5/15.' },
+  { num: 9, title: 'Ad Words', start: '2026-05-11', end: '2026-05-11', cat: 'kickoff', resources: 'HDL', source: 'hdl', note: 'HDL pass-through. Jamie Lincoln (HDL side) handles. Per Jill 2026-04-28 #4 (interpretation pending verbal sync).', flag: 'Marker stripped per Jill confirmation' },
+  { num: 10, title: 'Calculators (5.3 + 5.4)', start: '2026-05-07', end: '2026-05-19', cat: 'delivery', resources: 'CW: Chris', source: 'civ', note: 'Chris (Civ contractor) writes calculator copy 5/7–5/19. Targeting before B2 R1 Review 5/20. (client) annotation stripped — Chris is Civ contractor.', flag: 'Annotation strip; range converted from milestone' },
+  { num: 11, title: 'Smokeball Integration', start: '2026-05-18', end: '2026-05-18', cat: 'kickoff', resources: 'Dev: Leslie, CD: Lane', source: 'both', note: 'Leslie iframes Smokeball form into contact page (easy lift); Lane reskins to brand. Per Jill 2026-04-28 #2.', flag: 'Updated per Jill: scope clarified, Lane added' },
+  { num: 12, title: 'Content Capture Options', start: '2026-05-18', end: '2026-05-18', cat: 'delivery', resources: 'CD: Lane', source: 'civ', note: 'Civ presents content-capture options to HDL.' },
+  { num: 13, title: 'HDL R1 Review (B2)', start: '2026-05-20', end: '2026-05-20', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'Client R1 review of Batch 2 design.' },
+  { num: 14, title: 'HDL Vendor Pick', start: '2026-05-20', end: '2026-05-20', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'HDL selects content capture partner after Civ-presented options 5/18.' },
+  { num: 15, title: 'HDL Feedback (B2)', start: '2026-05-22', end: '2026-05-22', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'HDL Batch 2 feedback.' },
+  { num: 16, title: 'Batch 2 Dev', start: '2026-05-25', end: '2026-06-04', cat: 'kickoff', resources: 'Dev: Leslie', source: 'civ', note: 'B2 Dev 5/25–6/4 (wraps day Site Staging, day before Client R1 Site Review 6/5). Per operator 2026-04-28.', flag: 'Range conversion from milestone 5/25' },
+  { num: 17, title: 'Legal Articles (5.5–5.7)', start: '2026-05-29', end: '2026-05-29', cat: 'delivery', resources: 'CW: Chris', source: 'civ', note: 'Chris (Civ contractor) writes Legal Articles 5.5–5.7 copy. Delivers by B2 Copy Lock 5/29. Per Jill 2026-04-28 #3 (Chris writes; operator-inferred date).', flag: 'Annotation strip; deliver-by 5/29 per operator inference' },
+  { num: 18, title: 'HDL R2 + Copy Lock (B2)', start: '2026-05-29', end: '2026-05-29', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'Final B2 sign-off + copy lock.' },
+  { num: 19, title: 'Photo Shoot Prep', start: '2026-05-27', end: '2026-05-27', cat: 'delivery', resources: 'CD: Lane', source: 'civ', note: 'Internal Civ prep — production book + shot list for w/o 6/1 shoot.' },
+  { num: 20, title: 'Production Shoot', start: '2026-06-01', end: '2026-06-01', cat: 'delivery', resources: 'HDL + Civ', source: 'both', note: 'Photo shoot in Bend, w/o 6/1. Lane (and/or Kathy) attend. Photographer not yet locked per Jill 2026-04-28; pass-through cost to HDL.', ambiguous: true, flag: 'Photographer not locked' },
+  { num: 21, title: 'Site Staging', start: '2026-06-04', end: '2026-06-04', cat: 'kickoff', resources: 'Dev: Leslie', source: 'civ', note: 'Site Staging up. CURRENT VALUE 6/4 — Jill prior Slack said 6/8 with "decision pending whether to fold into R1 Site Review or stand alone". Verbal sync pending.', ambiguous: true, flag: '6/4 vs 6/8 pending Jill verbal' },
+  { num: 22, title: 'HDL R1 Site Review', start: '2026-06-05', end: '2026-06-05', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'Client R1 review of staged site. 3+3 cycle per brain doc.' },
+  { num: 23, title: 'HDL R1 Feedback Due', start: '2026-06-10', end: '2026-06-10', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'HDL R1 feedback delivered. 3 BD after R1 Review.' },
+  { num: 24, title: 'Civ R1 Refinements', start: '2026-06-15', end: '2026-06-22', cat: 'delivery', resources: 'Dev: Leslie', source: 'civ', note: 'Leslie addresses dev fixes 6/15–6/22 (1 week refinement window before CIV add final content 6/23). Single feedback cycle accepted (Dave out 6/11–6/18 — no Civ R2). Split from Lane post-shoot per operator 2026-04-28.', flag: 'Resource changed CD: Lane → Dev: Leslie; split from Lane post-shoot' },
+  { num: 25, title: 'Lane Post-Shoot Editing', start: '2026-06-02', end: '2026-06-19', cat: 'delivery', resources: 'CD: Lane', source: 'civ', note: 'Lane edits + selects photos from 6/1 shoot. Presents selections to Dave on his return 6/19 (Dave out 6/11–6/18). NEW: split from Civ R1 Refinements per operator 2026-04-28.', flag: 'NEW task' },
+  { num: 26, title: 'CIV add final content', start: '2026-06-23', end: '2026-06-29', cat: 'delivery', resources: 'CD: Lane', source: 'civ', note: 'Civ adds final content 6/23–6/29 (post-shoot copy + image swaps).' },
+  { num: 27, title: 'CIV QA + Webflow transfer', start: '2026-06-30', end: '2026-07-02', cat: 'delivery', resources: 'Dev: Leslie', source: 'civ', note: 'Civ QA + Webflow transfer 6/30–7/2. Folds in Domain/URL Task per brain-doc decision-gate map.' },
+  { num: 28, title: 'HDL Confirm to Launch', start: '2026-07-06', end: '2026-07-06', cat: 'delivery', resources: 'HDL', source: 'hdl', note: 'HDL gives go for 7/7 launch (per schedule sheet Row 22). Single-day milestone. Was 7/2 (drafter fabrication) — corrected.', flag: 'Date corrected 7/2 → 7/6' },
+  { num: 29, title: 'LAUNCH', start: '2026-07-07', end: '2026-07-07', cat: 'launch', resources: 'Dev: Leslie', source: 'civ', note: 'Site LAUNCH 7/7 per schedule sheet. Live transition window covered by CIV QA + Webflow transfer 6/30–7/2.' }
+];
+
+// Build header — week strip + day strip
+const gantt = document.getElementById('gantt');
+
+const header = document.createElement('div');
+header.className = 'gantt-header';
+
+const headerLeft = document.createElement('div');
+headerLeft.className = 'gantt-header-left';
+headerLeft.textContent = 'Task / Resources';
+header.appendChild(headerLeft);
+
+const headerRight = document.createElement('div');
+headerRight.className = 'gantt-header-right';
+headerRight.style.width = (TOTAL_DAYS * DAY_PX) + 'px';
+
+// Week labels
+const weekStrip = document.createElement('div');
+weekStrip.style.display = 'flex';
+weekStrip.style.borderBottom = '1px solid var(--border)';
+weekStrip.style.width = '100%';
+let cursor = new Date(PROJECT_START);
+// Find first Monday on or after start
+while (cursor.getDay() !== 1 && cursor < PROJECT_END) cursor.setDate(cursor.getDate() + 1);
+
+// Build day strip
+const dayStrip = document.createElement('div');
+dayStrip.style.display = 'flex';
+dayStrip.style.width = '100%';
+
+let weekStartIdx = 0;
+let weekStartDate = new Date(PROJECT_START);
+for (let i = 0; i < TOTAL_DAYS; i++) {
+  const d = new Date(PROJECT_START);
+  d.setDate(d.getDate() + i);
+  const dayCell = document.createElement('div');
+  dayCell.className = 'day-cell';
+  dayCell.style.width = DAY_PX + 'px';
+  dayCell.style.minWidth = DAY_PX + 'px';
+  if (isWeekend(d)) dayCell.classList.add('weekend');
+  dayCell.textContent = fmtDay(d);
+  if (d.getDate() === 1) {
+    dayCell.style.fontWeight = '700';
+    dayCell.style.color = '#374151';
+  }
+  dayStrip.appendChild(dayCell);
+
+  // Mark week boundaries
+  if (d.getDay() === 0 || i === TOTAL_DAYS - 1) {
+    const weekCell = document.createElement('div');
+    weekCell.className = 'week-cell';
+    weekCell.style.width = ((i - weekStartIdx + 1) * DAY_PX) + 'px';
+    weekCell.style.minWidth = ((i - weekStartIdx + 1) * DAY_PX) + 'px';
+    weekCell.textContent = `${fmtMonth(weekStartDate)} ${fmtDay(weekStartDate)}`;
+    weekStrip.appendChild(weekCell);
+    weekStartIdx = i + 1;
+    weekStartDate = new Date(d);
+    weekStartDate.setDate(weekStartDate.getDate() + 1);
+  }
+}
+
+const headerInner = document.createElement('div');
+headerInner.style.width = (TOTAL_DAYS * DAY_PX) + 'px';
+headerInner.appendChild(weekStrip);
+headerInner.appendChild(dayStrip);
+headerRight.appendChild(headerInner);
+header.appendChild(headerRight);
+gantt.appendChild(header);
+
+// Today indicator offset
+const todayOffset = daysBetween(PROJECT_START, TODAY) * DAY_PX + DAY_PX / 2;
+
+// Build task rows
+TASKS.forEach((task) => {
+  const row = document.createElement('div');
+  row.className = 'task-row';
+
+  const info = document.createElement('div');
+  info.className = 'task-info ' + (task.source === 'civ' ? 'civ-led' : task.source === 'hdl' ? 'hdl-led' : '');
+  if (task.source === 'both') info.style.background = '#f5f3ff';
+  info.innerHTML = `
+    <div><span class="task-num">#${task.num}</span><span class="task-title">${task.title}</span>${task.flag ? '<span class="blocker-badge">UPDATED</span>' : ''}${task.ambiguous ? '<span class="blocker-badge">PENDING</span>' : ''}</div>
+    <div class="task-meta">
+      <span class="source-pill ${task.source}">${task.source === 'civ' ? 'Civ' : task.source === 'hdl' ? 'HDL' : 'Civ + HDL'}</span>
+      <span><strong>${task.resources}</strong></span>
+    </div>
+    <div class="task-meta">
+      <span>${task.start === task.end ? task.start : task.start + ' → ' + task.end}</span>
+    </div>
+  `;
+  row.appendChild(info);
+
+  const barContainer = document.createElement('div');
+  barContainer.className = 'task-bar-container';
+  barContainer.style.position = 'relative';
+  barContainer.style.height = '46px';
+  barContainer.style.minWidth = (TOTAL_DAYS * DAY_PX) + 'px';
+
+  const startD = parseDate(task.start);
+  const endD = parseDate(task.end);
+  const startOffset = daysBetween(PROJECT_START, startD) * DAY_PX;
+  const widthDays = daysBetween(startD, endD) + 1;
+  const barWidth = widthDays * DAY_PX;
+
+  const bar = document.createElement('div');
+  bar.className = `task-bar ${task.cat}`;
+  if (task.ambiguous) bar.classList.add('ambiguous');
+  bar.title = task.note + (task.flag ? '\n\nFLAG: ' + task.flag : '');
+
+  if (task.start === task.end) {
+    // Milestone diamond
+    bar.classList.add('milestone');
+    bar.style.left = (startOffset + DAY_PX / 2) + 'px';
+    bar.innerHTML = '';
+
+    const label = document.createElement('div');
+    label.className = 'milestone-label';
+    label.style.left = (startOffset + DAY_PX + 4) + 'px';
+    label.textContent = task.title;
+    barContainer.appendChild(label);
+  } else {
+    bar.style.left = startOffset + 'px';
+    bar.style.width = barWidth + 'px';
+    bar.textContent = task.title;
+  }
+  barContainer.appendChild(bar);
+
+  // Today line (only on first row to avoid duplication, but we'll add to all for full vertical)
+  if (task.num === 1) {
+    const todayLine = document.createElement('div');
+    todayLine.className = 'today-line';
+    todayLine.style.left = todayOffset + 'px';
+    const todayLabel = document.createElement('div');
+    todayLabel.className = 'today-label';
+    todayLabel.style.left = todayOffset + 'px';
+    todayLabel.textContent = 'TODAY 4/28';
+    todayLine.appendChild(todayLabel);
+    barContainer.appendChild(todayLine);
+  } else {
+    const todayLine = document.createElement('div');
+    todayLine.className = 'today-line';
+    todayLine.style.left = todayOffset + 'px';
+    barContainer.appendChild(todayLine);
+  }
+
+  row.appendChild(barContainer);
+  gantt.appendChild(row);
+});
+
+// Adjust gantt min-width
+gantt.style.minWidth = (380 + TOTAL_DAYS * DAY_PX + 32) + 'px';
+</script>
+
+</body>
+</html>

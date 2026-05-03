@@ -1,0 +1,202 @@
+[
+  {
+    "agent_id": "agent-a03b6656c9ee6d659",
+    "description": "Builder 0b \u2014 operations layer hardening",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a03b6656",
+    "jsonl_size": 888190,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a03b6656c9ee6d659.jsonl"
+  },
+  {
+    "agent_id": "agent-a0d5904e393ae59c3",
+    "description": "Explore Slack infrastructure patterns",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 208732,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a0d5904e393ae59c3.jsonl"
+  },
+  {
+    "agent_id": "agent-a1c94fdaf7e782c29",
+    "description": "Spike C \u2014 LLM termination + latency",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 367770,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a1c94fdaf7e782c29.jsonl"
+  },
+  {
+    "agent_id": "agent-a21c294a0a4c2942d",
+    "description": "Builder 7 \u2014 bot LLM intercept (HIGHEST RISK)",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a21c294a",
+    "jsonl_size": 569997,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a21c294a0a4c2942d.jsonl"
+  },
+  {
+    "agent_id": "agent-a275b0e58f753550a",
+    "description": "Builder 13 \u2014 Civ-voice copy module",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a275b0e5",
+    "jsonl_size": 253961,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a275b0e58f753550a.jsonl"
+  },
+  {
+    "agent_id": "agent-a31430e76cf90087e",
+    "description": "Builder 5 \u2014 Project modal (create+edit, retainer-checkbox)",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a31430e7",
+    "jsonl_size": 424898,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a31430e76cf90087e.jsonl"
+  },
+  {
+    "agent_id": "agent-a3787d7050d199eaf",
+    "description": "Builder 0a \u2014 bot-tools + bot-context",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 313718,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a3787d7050d199eaf.jsonl"
+  },
+  {
+    "agent_id": "agent-a568061c0724026c9",
+    "description": "Builder 9 \u2014 view_submission validator + stub-swap-in",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a568061c",
+    "jsonl_size": 713981,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a568061c0724026c9.jsonl"
+  },
+  {
+    "agent_id": "agent-a5a61d33a42038681",
+    "description": "Builder 3 \u2014 /api/slack/commands (6 commands) + caller-side fuzzy match",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a5a61d33",
+    "jsonl_size": 659116,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a5a61d33a42038681.jsonl"
+  },
+  {
+    "agent_id": "agent-a5d970db3e95e3cb2",
+    "description": "Spike B \u2014 addProject dates on insert",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 173647,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a5d970db3e95e3cb2.jsonl"
+  },
+  {
+    "agent_id": "agent-a626fa8b7708ca4b4",
+    "description": "Builder 6 \u2014 Team Member modal",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 314928,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a626fa8b7708ca4b4.jsonl"
+  },
+  {
+    "agent_id": "agent-a665a394718666bfb",
+    "description": "Fix-builder: modal title length + empty options",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a665a394",
+    "jsonl_size": 437192,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a665a394718666bfb.jsonl"
+  },
+  {
+    "agent_id": "agent-a84a5fcb2c6deae1b",
+    "description": "Builder 11 \u2014 view_closed + concurrency check",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a84a5fcb",
+    "jsonl_size": 487161,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a84a5fcb2c6deae1b.jsonl"
+  },
+  {
+    "agent_id": "agent-a8ec65da423990119",
+    "description": "Explore Inngest + bot context patterns",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 185528,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a8ec65da423990119.jsonl"
+  },
+  {
+    "agent_id": "agent-a91ee13f7a0c55344",
+    "description": "Builder 0d \u2014 source-tagging sweep",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-a91ee13f",
+    "jsonl_size": 1133417,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-a91ee13f7a0c55344.jsonl"
+  },
+  {
+    "agent_id": "agent-aa2d280aba2b0f4a6",
+    "description": "Builder 14 \u2014 observability + intercept-miss alert + Inngest route reg",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-aa2d280a",
+    "jsonl_size": 421205,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-aa2d280aba2b0f4a6.jsonl"
+  },
+  {
+    "agent_id": "agent-aa48acc012b7d0413",
+    "description": "Explore operations layer + validators",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 222951,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-aa48acc012b7d0413.jsonl"
+  },
+  {
+    "agent_id": "agent-aa5cf14309cb71b0f",
+    "description": "Builder 0c \u2014 Slack fixtures + helpers",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-aa5cf143",
+    "jsonl_size": 327356,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-aa5cf14309cb71b0f.jsonl"
+  },
+  {
+    "agent_id": "agent-aa9be38eee8ce4dfc",
+    "description": "Builder 10 \u2014 slack-modal/submit Inngest",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-aa9be38e",
+    "jsonl_size": 889205,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-aa9be38eee8ce4dfc.jsonl"
+  },
+  {
+    "agent_id": "agent-ac154eaf1d66d48fe",
+    "description": "Builder 2 \u2014 /api/slack/interactivity route scaffold",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-ac154eaf",
+    "jsonl_size": 241879,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-ac154eaf1d66d48fe.jsonl"
+  },
+  {
+    "agent_id": "agent-ac3f9dc183ad356e4",
+    "description": "Spike A \u2014 createWeekItem cascade-on-insert",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 156229,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-ac3f9dc183ad356e4.jsonl"
+  },
+  {
+    "agent_id": "agent-ac86d87060c33da4f",
+    "description": "Builder 8 \u2014 interactivity wiring + multi-detect",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 658275,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-ac86d87060c33da4f.jsonl"
+  },
+  {
+    "agent_id": "agent-adeea4114fa2486c1",
+    "description": "Builder 4 \u2014 Task modal view builder",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-adeea411",
+    "jsonl_size": 299564,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-adeea4114fa2486c1.jsonl"
+  },
+  {
+    "agent_id": "agent-af0692841c45d5aba",
+    "description": "Builder 1 \u2014 schema migration + Inngest event",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-af069284",
+    "jsonl_size": 384220,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-af0692841c45d5aba.jsonl"
+  },
+  {
+    "agent_id": "agent-af294cacc1476a44f",
+    "description": "Builder 12 \u2014 Inngest cron expiry sweeper",
+    "agentType": "general-purpose",
+    "worktreePath": "/Users/jasonburks/Documents/_AI_/_R1/.claude/worktrees/agent-af294cac",
+    "jsonl_size": 167399,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-slack-modal/35a7ee9a-c1de-45cd-98fe-e9b39bbb290b/subagents/agent-af294cacc1476a44f.jsonl"
+  }
+]

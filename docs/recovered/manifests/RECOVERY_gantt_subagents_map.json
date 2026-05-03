@@ -1,0 +1,210 @@
+[
+  {
+    "agent_id": "agent-a0135ecd34ade79ec",
+    "description": "Track 2 visual-polish round 2 fix-builder",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 122320,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a0135ecd34ade79ec.jsonl"
+  },
+  {
+    "agent_id": "agent-a09214a738eb7c170",
+    "description": "Design Track 1 implementation plan",
+    "agentType": "Plan",
+    "worktreePath": "",
+    "jsonl_size": 272039,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a09214a738eb7c170.jsonl"
+  },
+  {
+    "agent_id": "agent-a16e72c2b317050ad",
+    "description": "Phase C holdout + 5-panel blind audit",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 264886,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a16e72c2b317050ad.jsonl"
+  },
+  {
+    "agent_id": "agent-a2832a7955a4d686e",
+    "description": "Track 1 post-execution holdout audit",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 265072,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a2832a7955a4d686e.jsonl"
+  },
+  {
+    "agent_id": "agent-a2a05254ddd008b6c",
+    "description": "Recon Runway Account View + theming",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 130921,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a2a05254ddd008b6c.jsonl"
+  },
+  {
+    "agent_id": "agent-a2e3062b0dfc818c6",
+    "description": "Track 1 execution \u2014 MCP + Slack bot wiring",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 725053,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a2e3062b0dfc818c6.jsonl"
+  },
+  {
+    "agent_id": "agent-a389ba01ab1ff9ff5",
+    "description": "Phase B holdout + 5-panel blind audit",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 245384,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a389ba01ab1ff9ff5.jsonl"
+  },
+  {
+    "agent_id": "agent-a39d667c4e0ddfde0",
+    "description": "Phase B execution \u2014 theme abstraction + per-section legend",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 552083,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a39d667c4e0ddfde0.jsonl"
+  },
+  {
+    "agent_id": "agent-a3fc33c8a491b4fda",
+    "description": "Explore Gantt CLI build dependencies",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 95562,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a3fc33c8a491b4fda.jsonl"
+  },
+  {
+    "agent_id": "agent-a428a520045c4361e",
+    "description": "Recon Civilization brand style guide",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 32254,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a428a520045c4361e.jsonl"
+  },
+  {
+    "agent_id": "agent-a45a0e2702eb24801",
+    "description": "Recon R2 + share-token patterns for Phase C",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 173662,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a45a0e2702eb24801.jsonl"
+  },
+  {
+    "agent_id": "agent-a45f9ba55dc8d88a4",
+    "description": "Design Track 2 implementation plan",
+    "agentType": "Plan",
+    "worktreePath": "",
+    "jsonl_size": 340454,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a45f9ba55dc8d88a4.jsonl"
+  },
+  {
+    "agent_id": "agent-a5afa98faa37d658c",
+    "description": "Track 2 execution \u2014 Account View dark embed",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 1676649,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a5afa98faa37d658c.jsonl"
+  },
+  {
+    "agent_id": "agent-a5fedbce65648497b",
+    "description": "Phase A \u2014 refactor pure gantt logic",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 441345,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a5fedbce65648497b.jsonl"
+  },
+  {
+    "agent_id": "agent-a77c0721c8f7dee93",
+    "description": "Phase B plan v2 with operator corrections",
+    "agentType": "Plan",
+    "worktreePath": "",
+    "jsonl_size": 174247,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a77c0721c8f7dee93.jsonl"
+  },
+  {
+    "agent_id": "agent-a7b3358a1552f8815",
+    "description": "Track 2 post-fix holdout audit",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 167541,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a7b3358a1552f8815.jsonl"
+  },
+  {
+    "agent_id": "agent-a8c280f827f00166f",
+    "description": "Round-3 micro-fix: completed/canceled bar color",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 63640,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a8c280f827f00166f.jsonl"
+  },
+  {
+    "agent_id": "agent-a8d99db0f3221431c",
+    "description": "Audit gantt code structure for refactor risks",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 190123,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a8d99db0f3221431c.jsonl"
+  },
+  {
+    "agent_id": "agent-a9d4d5577da5bd85c",
+    "description": "Track 2 round-2 holdout + completed/canceled bug audit",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 80008,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-a9d4d5577da5bd85c.jsonl"
+  },
+  {
+    "agent_id": "agent-ab579cc426db3a92b",
+    "description": "Phase C execution \u2014 hosted-URL share infra",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 284776,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-ab579cc426db3a92b.jsonl"
+  },
+  {
+    "agent_id": "agent-ac90190bf3e1a3b75",
+    "description": "Design Phase D implementation plan",
+    "agentType": "Plan",
+    "worktreePath": "",
+    "jsonl_size": 313309,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-ac90190bf3e1a3b75.jsonl"
+  },
+  {
+    "agent_id": "agent-acd4cc3c2c5e2b4c7",
+    "description": "Track 2 holdout + 5-panel blind audit",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 212416,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-acd4cc3c2c5e2b4c7.jsonl"
+  },
+  {
+    "agent_id": "agent-ad2bc8a6e069f27cc",
+    "description": "Design Phase B implementation plan",
+    "agentType": "Plan",
+    "worktreePath": "",
+    "jsonl_size": 215297,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-ad2bc8a6e069f27cc.jsonl"
+  },
+  {
+    "agent_id": "agent-adead0c118047f4d2",
+    "description": "Track 2 visual-polish fix-builder",
+    "agentType": "general-purpose",
+    "worktreePath": "",
+    "jsonl_size": 231114,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-adead0c118047f4d2.jsonl"
+  },
+  {
+    "agent_id": "agent-adf4a905ee254e2f8",
+    "description": "Design Phase C implementation plan",
+    "agentType": "Plan",
+    "worktreePath": "",
+    "jsonl_size": 178784,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-adf4a905ee254e2f8.jsonl"
+  },
+  {
+    "agent_id": "agent-af1e29740e4505549",
+    "description": "Recon Slack bot + MCP surface for gantt wiring",
+    "agentType": "Explore",
+    "worktreePath": "",
+    "jsonl_size": 221887,
+    "jsonl_path": "/Users/jasonburks/.claude/projects/-Users-jasonburks-Documents--AI---R1--worktrees-gantt-cli/dab01deb-92b0-4e2a-978e-2bff65dab597/subagents/agent-af1e29740e4505549.jsonl"
+  }
+]
