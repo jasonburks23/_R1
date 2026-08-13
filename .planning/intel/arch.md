@@ -1,3 +1,8 @@
+---
+updated_at: "2026-08-12T00:00:00Z"
+last_mapped_commit: "435ebba5d6c22f986d28f3fb79c0f4258970e5ba"
+---
+
 # _R1 Intelligence: Architecture and Current State
 
 **Date:** 2026-08-11
