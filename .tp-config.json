@@ -3,19 +3,6 @@
   "stateFile": "TP-STATE.md",
   "sessionBuffer": ".session-buffer.json",
   "roles": [
-    "operator",
-    "driver",
-    "monitor",
-    "thought-partner",
-    "strategist",
-    "account-manager",
-    "art-director",
-    "copywriter",
-    "engineer",
-    "designer",
-    "reviewer",
-    "qa",
-    "data-integrity",
-    "data-evaluator"
+    "feature-runway-tp"
   ]
 }

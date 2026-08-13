@@ -1,8 +1,54 @@
 {
   "enabledPlugins": {
-"frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true
   },
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/jasonburks/Documents/_AI_/Civilization-Skill-Suite/agencyos-compact-driver/bin/hooks/log-userpromptsubmit.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/jasonburks/Documents/_AI_/Civilization-Skill-Suite/agencyos-compact-driver/bin/hooks/log-stop.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/jasonburks/Documents/_AI_/Civilization-Skill-Suite/agencyos-compact-driver/bin/hooks/log-session-start.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/jasonburks/Documents/_AI_/Civilization-Skill-Suite/agencyos-compact-driver/bin/hooks/log-stop.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
   }
 }

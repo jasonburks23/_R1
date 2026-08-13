@@ -88,3 +88,8 @@ docs/tmp/
 
 # gstack tooling output (per-developer cache)
 .gstack/
+di-tp-exit-debrief.md
+
+# DI-TP one-off diagnostics + migrations (data-integrity working files, never committed to runway per fleet rule)
+scripts/diagnostics/*-2026-06-*
+scripts/runway-migrations/*-2026-06-*.ts
