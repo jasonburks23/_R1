@@ -125,24 +125,24 @@ function collectSourceFiles(dir: string): string[] {
 }
 
 /**
- * True if `source` contains an equality operator (`==`, `===`, `!=`, `!==`)
- * with both a `token` and an `apiKey` mention (bare identifier, or
- * `process.env.*`) within WINDOW characters of it on whitespace-normalized
+ * True if `source` contains an equality operator, `==`, `===`, `!=`, or
+ * `!==`, with both a `token` and an `apiKey` mention, a bare identifier or
+ * `process.env.*`, within WINDOW characters of it on whitespace-normalized
  * source. Shape-based on purpose: it does not require the identifiers to
  * sit directly next to the operator, so it still catches a compare fed by
  * freshly-aliased variables.
  *
- * Both polarities matter (_R1#116). The idiomatic shape for an auth check
- * is a negative compare that rejects on mismatch — `if (secret !== expected)
- * return 401` — not the positive `token === apiKey` textbook example. A
- * sweep that only matched `==`/`===` was structurally blind to the ordinary
- * case and only ever caught the unusual one.
+ * Both polarities matter, per _R1#116. The idiomatic shape for an auth
+ * check is a negative compare that rejects on mismatch, `if (secret !==
+ * expected) return 401`, not the positive `token === apiKey` textbook
+ * example. A sweep that only matched `==`/`===` was structurally blind to
+ * the ordinary case and only ever caught the unusual one.
  */
 function hasTokenEqualityShape(source: string): boolean {
   const normalized = source.replace(/\s+/g, " ");
   // Longest-first alternation, not a lookaround extension of the old
-  // positive-only pattern: `!?={2,3}` would still miss bare `!=` (one `=`
-  // after the `!`, below the {2,3} minimum). Explicit operators avoid that
+  // positive-only pattern: `!?={2,3}` would still miss bare `!=`, one `=`
+  // after the `!`, below the {2,3} minimum. Explicit operators avoid that
   // gap and any lookaround edge cases around them.
   const opPattern = /!==|===|!=|==/g;
   let match: RegExpExecArray | null;
@@ -250,9 +250,9 @@ describe("token-compare guard: no plain-equality token compare in Runway API rou
       expect(hasTokenEqualityShape(bypass)).toBe(true);
     });
 
-    describe("polarity x naming matrix (_R1#116)", () => {
+    describe("polarity x naming matrix, _R1#116", () => {
       // Polarity and naming were confounded in the original diagnosis: the
-      // real miss (gantt-embed, auth/embedSecret, !==) was misread as a
+      // real miss, gantt-embed, auth/embedSecret, !==, was misread as a
       // naming problem because nobody had separated "which names" from
       // "which operator" as independent dimensions. All four cells must be
       // exercised on their own to keep that confusion from recurring.
@@ -263,9 +263,9 @@ describe("token-compare guard: no plain-equality token compare in Runway API rou
       // token/apiKey requirement is satisfied by the alias assignment, the
       // same way it already is for the real gantt-generate-shaped bypass.
       // A naive "if (auth !== embedSecret)" with no token/apiKey mention
-      // anywhere nearby fails the naming filter regardless of operator -
-      // that's real, and it's the naming filter's known, unchanged scope
-      // limit (see the module-level scope-limits note), not this fix's
+      // anywhere nearby fails the naming filter regardless of operator.
+      // That's real, and it's the naming filter's known, unchanged scope
+      // limit, per the module-level scope-limits note, not this fix's
       // job. This matrix isolates polarity as the one true variable by
       // holding the naming dimension fixed at "passes."
       function auth_embedSecret(op: "!==" | "===") {
