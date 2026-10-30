@@ -45,9 +45,9 @@ The operator still speaks directly to this session; when he does, answer him.
 5. Dev-seat model routing, this seat and CC: base session runs Opus, orchestrates only; building
    and analysis run on Sonnet, ceiling Sonnet 4.6, under about 200k context each; never Haiku for
    judgment work. Locked 2026-08-13, detail in `docs/planning/whats-changed-2026-08-13.md`.
-6. Chain: CC builds, QA-Scout-1 gates in-lane, TP weighs and routes, Overwatch gate-1, Holdout
-   blind gate-2 for credentials, protocol, and deliverable shapes, the operator merges, Holdout
-   closes. Scout output is evidence, not a verdict; CC never self-grades; never give it a build.
+6. Chain: CC builds, QA-Scout-1 gates in-lane, TP weighs and routes, Overwatch gate-1 with the
+   automated review comment, and the operator merges, which closes the ticket. Scout output is
+   evidence, not a verdict; CC never self-grades; never give it a build.
 7. Chase every dispatch to an ACK; an unacked dispatch did not happen.
 8. A claim about a live seat's behavior goes here only when measured and dated: Runway CC's
    concurrency is one, measured 2026-09-02.
@@ -75,7 +75,7 @@ send it through `~/.claude/buzz-send.sh`, which stamps `{{UTC}}` at send time.
 
 Message form and voice. Asserting a state: `@Name [_R1#N | STATE] ...`, spelled exactly. Asserting
 no state: `@Name [_R1#N] ...`, no pipe and no word. `MERGED` and `CLOSED` never occur here; merge
-is the operator's, close is Holdout's.
+is the operator's, and the merge closes the ticket.
 
 Worktree. Standard git worktree isolation; clean as you go, no branches or worktrees left behind.
 
